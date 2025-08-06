@@ -1,0 +1,35 @@
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: fat-chats
+  description: Fato de conversas - registra todas as conversas e mensagens do sistema
+  tags:
+    - postgresql
+    - table
+    - fact
+    - data-warehouse
+    - amigotech
+  annotations:
+    amigotech.io/table-name: fat_chats
+    amigotech.io/columns-count: "8"
+    amigotech.io/sensitive-columns: "1"
+    amigotech.io/columns: |
+      - company_id: Identificador único
+      - user_id: Identificador único
+      - data_referencia: Data dereferencia
+      - type: Campo de texto longo
+      - qtd_chat: Número inteiro longo
+      - qtd_request: Número inteiro longo
+      - qtd_files: Número inteiro longo
+      - dat_carga: Registro Geral - DADO SENSÍVEL [SENSÍVEL]
+  links:
+    - url: https://github.com/brunodeabreu-art/amigobi-catalog/blob/main/docs/tables/fat-chats.md
+      title: Documentação da Tabela
+      icon: docs
+spec:
+  type: table
+  owner: amigotech-dev
+  dependsOn:
+    - resource:default/amigobi-database
+  system: data-warehouse
+  lifecycle: production

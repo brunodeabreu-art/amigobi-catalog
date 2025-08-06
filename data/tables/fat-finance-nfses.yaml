@@ -1,0 +1,36 @@
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: fat-finance-nfses
+  description: Fato financeiro de NFSes - registra notas fiscais de serviço emitidas
+  tags:
+    - postgresql
+    - table
+    - fact
+    - data-warehouse
+    - amigotech
+  annotations:
+    amigotech.io/table-name: fat_finance_nfses
+    amigotech.io/columns-count: "10"
+    amigotech.io/columns: |
+      - id: Identificador único
+      - servico_valores_valor_servicos: Valor deservico_valores_servicos
+      - status: Status atual
+      - created_at: Data e hora de criação
+      - user_id: Identificador único
+      - source: Campo de texto variável
+      - new_attendance_id: Identificador único
+      - company_id: Identificador único
+      - dt_emissao: Data deemissao
+      - dt_competencia: Data decompetencia
+  links:
+    - url: https://github.com/brunodeabreu-art/amigobi-catalog/blob/main/docs/tables/fat-finance-nfses.md
+      title: Documentação da Tabela
+      icon: docs
+spec:
+  type: table
+  owner: amigotech-dev
+  dependsOn:
+    - resource:default/amigobi-database
+  system: data-warehouse
+  lifecycle: production

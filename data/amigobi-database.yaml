@@ -1,0 +1,24 @@
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: amigobi-database
+  description: Banco de dados PostgreSQL principal do AmigoBI - Data Warehouse
+  tags:
+    - postgresql
+    - database
+    - data-warehouse
+    - amigotech
+  annotations:
+    amigotech.io/host: prod-amigo-bi.cocfdbouhbbs.us-east-1.rds.amazonaws.com
+    amigotech.io/port: "5432"
+    amigotech.io/database: amigobi
+    amigotech.io/tables-count: "8"
+  links:
+    - url: https://github.com/brunodeabreu-art/amigobi-catalog
+      title: Data Catalog Repository
+      icon: github
+spec:
+  type: database
+  owner: amigotech-dev
+  system: data-warehouse
+  lifecycle: production

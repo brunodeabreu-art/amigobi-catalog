@@ -1,0 +1,35 @@
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: fat-attendance-records
+  description: Fato de registros de atendimento - armazena histórico de atendimentos realizados
+  tags:
+    - postgresql
+    - table
+    - fact
+    - data-warehouse
+    - amigotech
+  annotations:
+    amigotech.io/table-name: fat_attendance_records
+    amigotech.io/columns-count: "8"
+    amigotech.io/sensitive-columns: "1"
+    amigotech.io/columns: |
+      - user_id: Identificador único
+      - company_id: Identificador único
+      - type: Campo de texto variável
+      - subtype: Campo de texto longo
+      - has_digital_signature: Valor verdadeiro/falso
+      - data_referencia: Data dereferencia
+      - qtd: Número inteiro longo
+      - dat_carga: Registro Geral - DADO SENSÍVEL [SENSÍVEL]
+  links:
+    - url: https://github.com/brunodeabreu-art/amigobi-catalog/blob/main/docs/tables/fat-attendance-records.md
+      title: Documentação da Tabela
+      icon: docs
+spec:
+  type: table
+  owner: amigotech-dev
+  dependsOn:
+    - resource:default/amigobi-database
+  system: data-warehouse
+  lifecycle: production

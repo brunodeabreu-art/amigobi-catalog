@@ -1,0 +1,33 @@
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: fat-conexoes
+  description: Fato de conexões - monitora conexões e sessões de usuários
+  tags:
+    - postgresql
+    - table
+    - fact
+    - data-warehouse
+    - amigotech
+  annotations:
+    amigotech.io/table-name: fat_conexoes
+    amigotech.io/columns-count: "6"
+    amigotech.io/sensitive-columns: "1"
+    amigotech.io/columns: |
+      - data_referencia: Data dereferencia
+      - status: Status atual
+      - name: Campo de texto longo
+      - quantidade: Identificador único
+      - source_profile_id: Identificador único
+      - target_profile_id: Identificador único [SENSÍVEL]
+  links:
+    - url: https://github.com/brunodeabreu-art/amigobi-catalog/blob/main/docs/tables/fat-conexoes.md
+      title: Documentação da Tabela
+      icon: docs
+spec:
+  type: table
+  owner: amigotech-dev
+  dependsOn:
+    - resource:default/amigobi-database
+  system: data-warehouse
+  lifecycle: production

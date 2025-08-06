@@ -1,0 +1,46 @@
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: fat-posts
+  description: Fato de posts - armazena publicações e conteúdos criados pelos usuários
+  tags:
+    - postgresql
+    - table
+    - fact
+    - data-warehouse
+    - amigotech
+  annotations:
+    amigotech.io/table-name: fat_posts
+    amigotech.io/columns-count: "20"
+    amigotech.io/columns: |
+      - id: Identificador único
+      - text: Campo de texto longo
+      - total_likes: Valor total
+      - total_comments: Valor total
+      - total_shares: Valor total
+      - profile_id: Identificador único
+      - creator_id: Identificador único
+      - link_id: Identificador único
+      - is_sponsored: Indicador booleanosponsored
+      - is_deleted: Indicador booleanodeleted
+      - created_at: Data e hora de criação
+      - updated_at: Data e hora da última atualização
+      - parent_post_id: Identificador único
+      - title: Campo de texto variável
+      - external_post_key: Campo de texto variável
+      - summary: Campo de texto longo
+      - status: Status atual
+      - destroyer_id: Identificador único
+      - available_at: Campo do tipo timestamp without time zone
+      - cover_image_url: Campo de texto variável
+  links:
+    - url: https://github.com/brunodeabreu-art/amigobi-catalog/blob/main/docs/tables/fat-posts.md
+      title: Documentação da Tabela
+      icon: docs
+spec:
+  type: table
+  owner: amigotech-dev
+  dependsOn:
+    - resource:default/amigobi-database
+  system: data-warehouse
+  lifecycle: production

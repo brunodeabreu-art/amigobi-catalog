@@ -1,0 +1,40 @@
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: fat-user-devices
+  description: Fato de dispositivos de usuário - registra dispositivos utilizados pelos usuários
+  tags:
+    - postgresql
+    - table
+    - fact
+    - data-warehouse
+    - amigotech
+  annotations:
+    amigotech.io/table-name: fat_user_devices
+    amigotech.io/columns-count: "13"
+    amigotech.io/sensitive-columns: "1"
+    amigotech.io/columns: |
+      - id: Identificador único
+      - user_id: Identificador único
+      - id_aparelho: Identificador único
+      - marca: Campo de texto variável
+      - aparelho: Campo de texto variável
+      - modelo: Campo de texto variável
+      - fabrica: Campo de texto variável
+      - versao: Campo de texto variável
+      - tipo: Campo de texto variável
+      - sistema: Campo de texto variável
+      - versao_sistema: Campo de texto variável
+      - status: Status atual
+      - dat_carga: Registro Geral - DADO SENSÍVEL [SENSÍVEL]
+  links:
+    - url: https://github.com/brunodeabreu-art/amigobi-catalog/blob/main/docs/tables/fat-user-devices.md
+      title: Documentação da Tabela
+      icon: docs
+spec:
+  type: table
+  owner: amigotech-dev
+  dependsOn:
+    - resource:default/amigobi-database
+  system: data-warehouse
+  lifecycle: production

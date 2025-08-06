@@ -1,0 +1,46 @@
+apiVersion: backstage.io/v1alpha1
+kind: Location
+metadata:
+  name: amigobi-data-catalog
+  description: Catálogo de dados do AmigoBI - Data Warehouse PostgreSQL
+  tags:
+    - data-catalog
+    - postgresql
+    - data-warehouse
+    - amigotech
+  annotations:
+    backstage.io/techdocs-ref: dir:.
+  links:
+    - url: https://github.com/brunodeabreu-art/amigobi-catalog
+      title: Repositório do Catálogo
+      icon: github
+spec:
+  targets:
+    # Banco de dados principal
+    - ./data/amigobi-database.yaml
+    
+    # Tabelas dimensão
+    - ./data/tables/dim-company.yaml
+    - ./data/tables/dim-user.yaml
+    
+    # Tabelas fato
+    - ./data/tables/fat-attendance-records.yaml
+    - ./data/tables/fat-chats.yaml
+    - ./data/tables/fat-conexoes.yaml
+    - ./data/tables/fat-finance-nfses.yaml
+    - ./data/tables/fat-posts.yaml
+    - ./data/tables/fat-user-devices.yaml
+---
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: data-warehouse
+  description: Sistema de Data Warehouse do AmigoBI
+  tags:
+    - data-warehouse
+    - analytics
+    - postgresql
+    - amigotech
+spec:
+  owner: amigotech-dev
+  domain: data-platform

@@ -1,0 +1,58 @@
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: dim-company
+  description: Dimensão de empresas - contém dados mestres das empresas cadastradas no sistema
+  tags:
+    - postgresql
+    - table
+    - dimension
+    - data-warehouse
+    - amigotech
+  annotations:
+    amigotech.io/table-name: dim_company
+    amigotech.io/columns-count: "31"
+    amigotech.io/sensitive-columns: "4"
+    amigotech.io/columns: |
+      - company_id: Identificador único
+      - name: Campo de texto longo
+      - cnpj: CNPJ da empresa - DADO SENSÍVEL [SENSÍVEL]
+      - contact_email: Endereço de email - DADO SENSÍVEL [SENSÍVEL]
+      - contact_phone: Campo de texto variável
+      - address_cep: Campo de texto variável
+      - address_address: Campo de texto variável
+      - address_number: Campo de texto variável
+      - address_complement: Campo de texto variável
+      - address_district: Campo de texto variável
+      - address_city: Campo de texto variável
+      - address_state: Campo de texto variável
+      - active: Valor verdadeiro/falso
+      - fiscal_tax_regime: Campo de texto variável
+      - fiscal_cpf_responsible: CPF do usuário - DADO SENSÍVEL [SENSÍVEL]
+      - fiscal_razao_social: Campo de texto longo
+      - created_at: Data e hora de criação
+      - updated_at: Data e hora da última atualização
+      - code: Campo de texto variável
+      - customer_responsible: Campo de texto variável
+      - contract_start_date: Campo do tipo timestamp without time zone
+      - type: Campo de texto variável
+      - industry_type: Campo de texto variável
+      - allow_send_new_patient_sms: Valor verdadeiro/falso
+      - allow_send_confirmation_sms: Valor verdadeiro/falso
+      - allow_send_medical_record_sms: Valor verdadeiro/falso
+      - allow_send_telemedicine_sms: Valor verdadeiro/falso
+      - is_personal: Indicador booleanopersonal
+      - dat_carga: Registro Geral - DADO SENSÍVEL [SENSÍVEL]
+      - is_deleted: Indicador booleanodeleted
+      - config_modules: Campo de texto longo
+  links:
+    - url: https://github.com/brunodeabreu-art/amigobi-catalog/blob/main/docs/tables/dim-company.md
+      title: Documentação da Tabela
+      icon: docs
+spec:
+  type: table
+  owner: amigotech-dev
+  dependsOn:
+    - resource:default/amigobi-database
+  system: data-warehouse
+  lifecycle: production

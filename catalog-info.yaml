@@ -42,3 +42,205 @@ spec:
   owner: amigotech-dev
   system: data-warehouse
   lifecycle: production
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: dim-company
+  description: Dimensão de empresas - contém dados mestres das empresas cadastradas no sistema
+  tags:
+    - postgresql
+    - table
+    - dimension
+    - data-warehouse
+    - amigotech
+  annotations:
+    amigotech.io/table-name: dim_company
+    amigotech.io/columns-count: "31"
+    amigotech.io/sensitive-columns: "4"
+  links:
+    - url: https://github.com/brunodeabreu-art/amigobi-catalog/blob/main/docs/tables/dim-company.md
+      title: Documentação da Tabela
+      icon: docs
+spec:
+  type: table
+  owner: amigotech-dev
+  dependsOn:
+    - resource:default/amigobi-database
+  system: data-warehouse
+  lifecycle: production
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: dim-user
+  description: Dimensão de usuários - contém dados mestres dos usuários do sistema
+  tags:
+    - postgresql
+    - table
+    - dimension
+    - data-warehouse
+    - amigotech
+  annotations:
+    amigotech.io/table-name: dim_user
+  links:
+    - url: https://github.com/brunodeabreu-art/amigobi-catalog/blob/main/docs/tables/dim-user.md
+      title: Documentação da Tabela
+      icon: docs
+spec:
+  type: table
+  owner: amigotech-dev
+  dependsOn:
+    - resource:default/amigobi-database
+  system: data-warehouse
+  lifecycle: production
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: fat-attendance-records
+  description: Fato de registros de atendimento - armazena histórico de atendimentos realizados
+  tags:
+    - postgresql
+    - table
+    - fact
+    - data-warehouse
+    - amigotech
+  annotations:
+    amigotech.io/table-name: fat_attendance_records
+  links:
+    - url: https://github.com/brunodeabreu-art/amigobi-catalog/blob/main/docs/tables/fat-attendance-records.md
+      title: Documentação da Tabela
+      icon: docs
+spec:
+  type: table
+  owner: amigotech-dev
+  dependsOn:
+    - resource:default/amigobi-database
+  system: data-warehouse
+  lifecycle: production
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: fat-chats
+  description: Fato de conversas - registra todas as conversas e mensagens do sistema
+  tags:
+    - postgresql
+    - table
+    - fact
+    - data-warehouse
+    - amigotech
+  annotations:
+    amigotech.io/table-name: fat_chats
+  links:
+    - url: https://github.com/brunodeabreu-art/amigobi-catalog/blob/main/docs/tables/fat-chats.md
+      title: Documentação da Tabela
+      icon: docs
+spec:
+  type: table
+  owner: amigotech-dev
+  dependsOn:
+    - resource:default/amigobi-database
+  system: data-warehouse
+  lifecycle: production
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: fat-conexoes
+  description: Fato de conexões - monitora conexões e sessões de usuários
+  tags:
+    - postgresql
+    - table
+    - fact
+    - data-warehouse
+    - amigotech
+  annotations:
+    amigotech.io/table-name: fat_conexoes
+  links:
+    - url: https://github.com/brunodeabreu-art/amigobi-catalog/blob/main/docs/tables/fat-conexoes.md
+      title: Documentação da Tabela
+      icon: docs
+spec:
+  type: table
+  owner: amigotech-dev
+  dependsOn:
+    - resource:default/amigobi-database
+  system: data-warehouse
+  lifecycle: production
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: fat-finance-nfses
+  description: Fato financeiro de NFSes - registra notas fiscais de serviço emitidas
+  tags:
+    - postgresql
+    - table
+    - fact
+    - data-warehouse
+    - amigotech
+  annotations:
+    amigotech.io/table-name: fat_finance_nfses
+  links:
+    - url: https://github.com/brunodeabreu-art/amigobi-catalog/blob/main/docs/tables/fat-finance-nfses.md
+      title: Documentação da Tabela
+      icon: docs
+spec:
+  type: table
+  owner: amigotech-dev
+  dependsOn:
+    - resource:default/amigobi-database
+  system: data-warehouse
+  lifecycle: production
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: fat-posts
+  description: Fato de posts - armazena publicações e conteúdos criados pelos usuários
+  tags:
+    - postgresql
+    - table
+    - fact
+    - data-warehouse
+    - amigotech
+  annotations:
+    amigotech.io/table-name: fat_posts
+  links:
+    - url: https://github.com/brunodeabreu-art/amigobi-catalog/blob/main/docs/tables/fat-posts.md
+      title: Documentação da Tabela
+      icon: docs
+spec:
+  type: table
+  owner: amigotech-dev
+  dependsOn:
+    - resource:default/amigobi-database
+  system: data-warehouse
+  lifecycle: production
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: fat-user-devices
+  description: Fato de dispositivos de usuário - registra dispositivos utilizados pelos usuários
+  tags:
+    - postgresql
+    - table
+    - fact
+    - data-warehouse
+    - amigotech
+  annotations:
+    amigotech.io/table-name: fat_user_devices
+  links:
+    - url: https://github.com/brunodeabreu-art/amigobi-catalog/blob/main/docs/tables/fat-user-devices.md
+      title: Documentação da Tabela
+      icon: docs
+spec:
+  type: table
+  owner: amigotech-dev
+  dependsOn:
+    - resource:default/amigobi-database
+  system: data-warehouse
+  lifecycle: production

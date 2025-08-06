@@ -1,0 +1,50 @@
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: dim-user
+  description: Dimensão de usuários - contém dados mestres dos usuários do sistema
+  tags:
+    - postgresql
+    - table
+    - dimension
+    - data-warehouse
+    - amigotech
+  annotations:
+    amigotech.io/table-name: dim_user
+    amigotech.io/columns-count: "23"
+    amigotech.io/sensitive-columns: "2"
+    amigotech.io/columns: |
+      - user_id: Identificador único
+      - user_name: Campo de texto longo
+      - specialty_name: Campo de texto longo
+      - gender: Campo de texto variável
+      - address_city: Campo de texto variável
+      - address_state: Campo de texto variável
+      - created_at: Data e hora de criação
+      - updated_at: Data e hora da última atualização
+      - dat_carga: Registro Geral - DADO SENSÍVEL [SENSÍVEL]
+      - is_deleted: Indicador booleanodeleted
+      - born: Data
+      - ind_amigo_one: Valor verdadeiro/falso
+      - is_active: Indicador booleanoactive
+      - birdid_token: Identificador único
+      - email: Endereço de email - DADO SENSÍVEL [SENSÍVEL]
+      - dt_last_login: Data delast_login
+      - indication_code: Campo de texto variável
+      - indicator_profile_id: Identificador único
+      - indicator_name: Campo de texto longo
+      - ind_premium: Valor verdadeiro/falso
+      - profile_id: Identificador único
+      - total_patients_created: Valor total
+      - is_certificado_ativo: Indicador se está ativo
+  links:
+    - url: https://github.com/brunodeabreu-art/amigobi-catalog/blob/main/docs/tables/dim-user.md
+      title: Documentação da Tabela
+      icon: docs
+spec:
+  type: table
+  owner: amigotech-dev
+  dependsOn:
+    - resource:default/amigobi-database
+  system: data-warehouse
+  lifecycle: production
